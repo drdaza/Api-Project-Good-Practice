@@ -1,0 +1,8 @@
+@mixin FlexDisplay($firstParameter, $secondParameter, $thirdParameter, $fourthParameter, $fifthParameter){
+    display: flex;
+    flex-direction: $firstParameter;
+    justify-content: $secondParameter;
+    align-items: $secondParameter;
+    width: $fourthParameter;
+    height: $fifthParameter;
+}

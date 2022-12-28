@@ -1,0 +1,21 @@
+@use 'mixings' as *;
+
+$primary-color: #C54F1F;
+$secondary-color: #A37F60;
+$terthiary-color: #B8BB9A;
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    @include FlexDisplay(column, center, center, 100%, auto);
+    color: #C54F1F;
+    background-color: #A37F60;
+    font-family: sans-serif, 'Courier New', Courier, monospace;
+}
+#app{
+    @include FlexDisplay(column, normal, center, 100%, auto);
+}
