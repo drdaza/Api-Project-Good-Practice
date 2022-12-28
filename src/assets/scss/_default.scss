@@ -1,7 +1,7 @@
 @use 'mixings' as *;
 
-$primary-color: #C54F1F;
-$secondary-color: #A37F60;
+$primary-color: #A37F60;
+$secondary-color: #C54F1F;
 $terthiary-color: #B8BB9A;
 
 *{
@@ -12,8 +12,8 @@ $terthiary-color: #B8BB9A;
 
 body{
     @include FlexDisplay(column, center, center, 100%, auto);
-    color: #C54F1F;
-    background-color: #A37F60;
+    color:$primary-color;
+    background-color: $secondary-color;
     font-family: sans-serif, 'Courier New', Courier, monospace;
 }
 #app{

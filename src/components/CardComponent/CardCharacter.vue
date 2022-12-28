@@ -7,6 +7,11 @@ const props = defineProps({
         requied: true
     }
 });
+const emits = defineEmits(['favhero']);
+
+const emitFvorite = ()=>{
+    emits('favhero',  props.character.name)
+}
 
 </script>
 <template>
@@ -16,6 +21,7 @@ const props = defineProps({
         <Button
             :title="'Favorites'"
             :type-btn="'action'"
+            @click="emitFvorite"
         ></Button>
     </div>
 </template>

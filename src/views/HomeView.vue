@@ -10,7 +10,9 @@ onBeforeMount(()=>{
 }
   
 )
-console.log(principalStore.Characters);
+const AddFavorite = (productName)=>{
+  console.log(productName);
+}
 </script>
 
 <template>
@@ -18,6 +20,7 @@ console.log(principalStore.Characters);
     <div class="card-space" v-for="item of principalStore.Characters">
       <CardCharacter
         :character="item"
+        @favhero="AddFavorite"
       />
     </div>
   </main>
