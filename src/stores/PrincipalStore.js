@@ -8,12 +8,15 @@ export const charactesStore= defineStore({
     }),
     actions: {
         async AsignCharacters(){
-            const Repository = new ApiRepository('Disney');
+            const Repository = new ApiRepository('Heroes');
             const Api = Repository.chooseApi();
             
             
             this.Characters = await Api.getAll();
             console.log(this.Characters);
+        },
+        getChracterbyId(characterId){
+            return this.Characters.find(item => item.id == characterId)
         }
     }
 })

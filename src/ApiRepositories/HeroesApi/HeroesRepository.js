@@ -13,7 +13,7 @@ export default class HeroesRepository{
         
         for (const character of json) {
             
-            const characterToAdd = new ApiPlayLoad(character.name, character.images.lg);
+            const characterToAdd = new ApiPlayLoad(character.name, character.images.lg, character.id);
             characters.push(characterToAdd);
         }
         

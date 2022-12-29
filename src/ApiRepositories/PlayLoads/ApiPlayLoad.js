@@ -1,10 +1,12 @@
 export default class ApiPlayLoad{
     name
     image
+    id
 
-    constructor(name, img){
+    constructor(name, img, id){
         this.name = name;
         this.image = img;
+        this.id = id;
     }
     get name(){
         return this.name

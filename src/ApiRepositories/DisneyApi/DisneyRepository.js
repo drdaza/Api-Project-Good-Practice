@@ -14,7 +14,7 @@ export default class DisneyRepository{
 
         for (const character of json.data){
             
-            const characterToAdd = new ApiPlayLoad(character.name, character.imageUrl);
+            const characterToAdd = new ApiPlayLoad(character.name, character.imageUrl,character._id);
             characters.push(characterToAdd);
             
         }

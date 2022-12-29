@@ -2,16 +2,19 @@
 import  { charactesStore } from '../stores/PrincipalStore'
 import { onBeforeMount } from 'vue';
 import CardCharacter from '../components/CardComponent/CardCharacter.vue';
+import {FavCharacterStore} from '../stores/FavoriteStores';
 
 const principalStore = charactesStore();
+const FavoriteStore = FavCharacterStore();
 
 onBeforeMount(()=>{
   principalStore.AsignCharacters();
 }
   
 )
-const AddFavorite = (productName)=>{
-  console.log(productName);
+const AddFavorite = (productId)=>{
+  const TemporalCharacter = principalStore.getChracterbyId(productId) 
+  FavoriteStore.AddCharacterToFavorites(TemporalCharacter);
 }
 </script>
 
@@ -20,7 +23,7 @@ const AddFavorite = (productName)=>{
     <div class="card-space" v-for="item of principalStore.Characters">
       <CardCharacter
         :character="item"
-        @favhero="AddFavorite"
+        @favhero="AddFavorite(item.id)"
       />
     </div>
   </main>

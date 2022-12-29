@@ -10,7 +10,7 @@ const props = defineProps({
 const emits = defineEmits(['favhero']);
 
 const emitFvorite = ()=>{
-    emits('favhero',  props.character.name)
+    emits('favhero',  props.character.id)
 }
 
 </script>
