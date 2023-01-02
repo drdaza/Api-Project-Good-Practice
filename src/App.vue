@@ -5,11 +5,7 @@ import { RouterLink, RouterView } from 'vue-router'
 
 <template>
   <header>
-    <img alt="Vue logo" class="logo" src="@/assets/logo.svg" width="125" height="125" />
-
     <div class="wrapper">
-      <h1>Hola</h1>
-
       <nav>
         <RouterLink to="/">Home</RouterLink>
         <RouterLink to="/about">About</RouterLink>
@@ -20,6 +16,16 @@ import { RouterLink, RouterView } from 'vue-router'
   <RouterView />
 </template>
 
-<style scoped>
+<style lang="scss" scoped>
+@use '../src/assets/scss/main' as *;
+header{
+  @include FlexDisplay(row, center, center, 100%, 20vh);
+  .wrapper{
+    nav{
+    @include FlexDisplay(row, space-evenly, center, 100%, 100%);
+    color: white;
+  }
+  }
+}
 
 </style>
