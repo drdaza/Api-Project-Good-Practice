@@ -28,7 +28,7 @@ const props = defineProps({
     
 }
 .inactive {
-        background-color: lightblue;
+        background-color: white;
     }
 .active{
         background-color: red;
