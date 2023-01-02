@@ -1,6 +1,10 @@
 <script setup>
 import ApiPlayLoad from '../../ApiRepositories/PlayLoads/ApiPlayLoad';
 import Button from '../SharedComponents/Button.vue';
+import { computed, ref } from 'vue';
+import { FavCharacterStore } from '../../stores/FavoriteStores';
+const FavoriteStore = FavCharacterStore();
+
 const props = defineProps({
     character:{
         type: ApiPlayLoad,
@@ -10,8 +14,13 @@ const props = defineProps({
 const emits = defineEmits(['favhero']);
 
 const emitFvorite = ()=>{
-    emits('favhero',  props.character.id)
+    emits('favhero',  props.character.id);
+    
 }
+const stateOfButton = computed(()=>{
+    if(FavoriteStore.FavCharacters.length>0){
+    return (FavoriteStore.getCharacterbyId(props.character.id)) ? 'active': 'inactive';}});
+
 
 </script>
 <template>
@@ -21,6 +30,7 @@ const emitFvorite = ()=>{
         <Button
             :title="'Favorites'"
             :type-btn="'action'"
+            :state-of="stateOfButton"
             @click="emitFvorite"
         ></Button>
     </div>

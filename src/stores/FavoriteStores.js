@@ -12,11 +12,19 @@ export const FavCharacterStore= defineStore({
             console.log(HeroToAdd);
             if(HeroToAdd){
                 console.log("is repeat");
+                this.DeleteCharacterToFavorites(HeroToAdd);
                 return
             }
             const newCharactertoAdd = new ApiPlayLoad(character.name, character.image, character.id)
             console.log('anidadio');
             this.FavCharacters.push(newCharactertoAdd)
+        },
+        getCharacterbyId(id){
+            return this.FavCharacters.find(item => item.id === id);
+        },
+        DeleteCharacterToFavorites(character){
+            const indexCharacter = this.FavCharacters.indexOf(character);
+            this.FavCharacters.splice(indexCharacter,1);
         }
     }
 })

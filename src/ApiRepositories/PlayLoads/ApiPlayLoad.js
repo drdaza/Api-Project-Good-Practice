@@ -8,10 +8,16 @@ export default class ApiPlayLoad{
         this.image = img;
         this.id = id;
     }
-    get name(){
-        return this.name
+    setname(name){
+        this.name = name;
     }
-    get image(){
-        return this.image
+    get name(){
+        return this.name;
+    }
+    setid(id){
+        this.id = id;
+    }
+    get id(){
+        return this.id;
     }
 }

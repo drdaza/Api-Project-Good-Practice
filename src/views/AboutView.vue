@@ -1,14 +1,20 @@
 <script setup>
 import CardCharacter from '../components/CardComponent/CardCharacter.vue';
 import { FavCharacterStore } from '../stores/FavoriteStores';
-const favoriteStore = FavCharacterStore();
+const FavoriteStore = FavCharacterStore();
+const DeleteFavorite = (productId)=>{
+  const TemporalCharacter = FavoriteStore.getCharacterbyId(productId);
+  FavoriteStore.AddCharacterToFavorites(TemporalCharacter);
+}
+
 
 </script>
 <template>
   <div class="about" >
-    <div class="card-space" v-for="item of favoriteStore.FavCharacters">
+    <div class="card-space" v-for="item of FavoriteStore.FavCharacters">
     <CardCharacter
       :character="item"
+      @favhero="DeleteFavorite(item.id)"
     />
     </div>
   </div>

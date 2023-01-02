@@ -8,17 +8,29 @@ const props = defineProps({
     typeBtn:{
         type: String,
         default: 'action'
+    },
+    stateOf:{
+        type: String,
+        
     }
 });
 </script>
 <template>
-    <button :class="['btn']">{{ props.title }}</button>
+    <button :class="['btn',props.stateOf]">{{ props.title }}</button>
 </template>
 <style lang="scss" scoped>
-.btn{
+.btn {
     width: 10vw;
     height: 5vh;
     border-radius: 50px;
     font-size: 100%;
+
+    
 }
+.inactive {
+        background-color: lightblue;
+    }
+.active{
+        background-color: red;
+    }
 </style>
