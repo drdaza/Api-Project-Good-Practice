@@ -8,7 +8,7 @@ export const charactesStore= defineStore({
     }),
     actions: {
         async AsignCharacters(){
-            const Repository = new ApiRepository('Disney');
+            const Repository = new ApiRepository('Pokemon');
             const Api = Repository.chooseApi();
             
             
