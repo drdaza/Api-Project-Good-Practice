@@ -2,7 +2,7 @@
     display: flex;
     flex-direction: $firstParameter;
     justify-content: $secondParameter;
-    align-items: $secondParameter;
+    align-items: $thirdParameter;
     width: $fourthParameter;
     height: $fifthParameter;
 }

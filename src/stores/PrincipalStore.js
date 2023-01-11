@@ -17,6 +17,13 @@ export const charactesStore= defineStore({
         },
         getChracterbyId(characterId){
             return this.Characters.find(item => item.id == characterId)
+        },
+        orderAlpahbetic(){
+            this.Characters.sort((FirstCharacter, SecondCharacter)=>{
+                if(FirstCharacter.name < SecondCharacter.name) return -1;
+                if(FirstCharacter.name > SecondCharacter.name) return 1;
+                return 0;
+            })
         }
     }
 })

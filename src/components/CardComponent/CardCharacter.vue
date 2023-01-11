@@ -3,6 +3,7 @@ import ApiPlayLoad from '../../ApiRepositories/PlayLoads/ApiPlayLoad';
 import Button from '../SharedComponents/Button.vue';
 import { computed, ref } from 'vue';
 import { FavCharacterStore } from '../../stores/FavoriteStores';
+import { RouterLink } from 'vue-router';
 const FavoriteStore = FavCharacterStore();
 
 const props = defineProps({
@@ -17,10 +18,13 @@ const emitFvorite = ()=>{
     emits('favhero',  props.character.id);
     
 }
+
 const stateOfButton = computed(()=>{
     if(FavoriteStore.FavCharacters.length>0){
-    return (FavoriteStore.getCharacterbyId(props.character.id)) ? 'active': 'inactive';}});
-
+    return (FavoriteStore.getCharacterbyId(props.character.id)) ? 'active': 'inactive';
+    }
+  }
+);
 const typeIfisPokemonCharacter = computed(()=>{
     if(props.character.type == undefined){
         return;
@@ -41,25 +45,92 @@ const typeIfisPokemonCharacter = computed(()=>{
                 :state-of="stateOfButton"
                 @click="emitFvorite"
             ></Button>
+            <router-link to="/details"><button @click="emitDetail">details</button></router-link>
         </div>
     </div>
 </template>
 <style lang="scss" scoped>
 @use '../../assets/scss/main' as *;
     img{
-      width: 80%;
-      height: 70%;
+      width: 60%;
+      height: 60%;
     }
     .card-base{
         @include FlexDisplay(column, center, center, 100%, 100%);
     }
-    .grass{
-        background-color: green;
+    .normal {
+    background-color: #8D6E63;
     }
-    .water{
-        background-color: aquamarine;
+
+    .fighting {
+        background-color: #e40000;
     }
-    .fire{
-        background-color: orangered;
+
+    .flying {
+        background-color: #3498DB;
+    }
+
+    .poison {
+        background-color: #EC407A;
+    }
+
+    .ground {
+        background-color: #FF5722;
+    }
+
+    .rock {
+        background-color: #FF8A65;
+    }
+
+    .bug {
+        background-color: #ffeb39;
+    }
+
+    .ghost {
+        background-color: #6A1B9A;
+    }
+
+    .steel {
+        background-color: #0000;
+    }
+
+    .fire {
+        background-color: #F39C12;
+    }
+
+    .water {
+        background-color: #0D47A1;
+    }
+
+    .grass {
+        background-color: #2E7D32 ;
+    }
+
+    .electric {
+        background-color: #f1c40fe8;
+    }
+
+    .psychic {
+        background-color: #E91E63;
+    }
+
+    .ice {
+        background-color: #26A69A;
+    }
+
+    .dragon {
+        background-color: #CE93D8;
+    }
+
+    .dark {
+        background-color: #880E4F;
+    }
+
+    .fairy {
+        background-color: #FF66CC;
+    }
+
+    .shadow {
+        background-color: #6A1B9A;
     }
 </style>

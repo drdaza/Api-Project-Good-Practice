@@ -27,7 +27,7 @@ const DeleteFavorite = (productId)=>{
   @include FlexDisplay(row, space-evenly, center, 100%, auto);
   flex-wrap: wrap;
   .card-space{
-    @include FlexDisplay(column, center, center, 23%, 60vh);
+    @include FlexDisplay(column, center, center, 27%, 40vh);
     margin-top: 2%;
     border: $terthiary-color 2px solid;
     

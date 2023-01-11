@@ -20,7 +20,7 @@ export default class PokemonRepository{
             charactersPure.push(characterJson);
         }
         for (const character of charactersPure) {
-            const characterToAdd = new ApiPlayLoad(character.name, character.sprites.front_default, character.id, character.types[0].type.name);
+            const characterToAdd = new ApiPlayLoad(character.name, character.sprites.versions["generation-vi"]["omegaruby-alphasapphire"].front_default, character.id, character.types[0].type.name);
             
             charactersReturn.push(characterToAdd);
         }
