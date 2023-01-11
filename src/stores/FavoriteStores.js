@@ -11,12 +11,12 @@ export const FavCharacterStore= defineStore({
             const HeroToAdd = this.FavCharacters.find(item => item.id === character.id);
             console.log(HeroToAdd);
             if(HeroToAdd){
-                console.log("is repeat");
+                
                 this.DeleteCharacterToFavorites(HeroToAdd);
                 return
             }
-            const newCharactertoAdd = new ApiPlayLoad(character.name, character.image, character.id)
-            console.log('anidadio');
+            const newCharactertoAdd = new ApiPlayLoad(character.name, character.image, character.id, character.type)
+            
             this.FavCharacters.push(newCharactertoAdd)
         },
         getCharacterbyId(id){
