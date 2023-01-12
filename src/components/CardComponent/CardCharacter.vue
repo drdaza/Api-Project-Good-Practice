@@ -3,7 +3,7 @@ import ApiPlayLoad from '../../ApiRepositories/PlayLoads/ApiPlayLoad';
 import Button from '../SharedComponents/Button.vue';
 import { computed, ref } from 'vue';
 import { FavCharacterStore } from '../../stores/FavoriteStores';
-import { RouterLink } from 'vue-router';
+
 const FavoriteStore = FavCharacterStore();
 
 const props = defineProps({
@@ -45,7 +45,7 @@ const typeIfisPokemonCharacter = computed(()=>{
                 :state-of="stateOfButton"
                 @click="emitFvorite"
             ></Button>
-            <router-link to="/details"><button @click="emitDetail">details</button></router-link>
+            <button>details</button>
         </div>
     </div>
 </template>

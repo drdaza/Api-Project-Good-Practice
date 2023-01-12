@@ -6,6 +6,7 @@ import {FavCharacterStore} from '../stores/FavoriteStores';
 import { ref, computed } from 'vue';
 const selected = ref('');
 const categoryFilter = ref('');
+const search = ref('');
 
 const principalStore = charactesStore();
 const FavoriteStore = FavCharacterStore();
@@ -26,17 +27,33 @@ const OrderArray=(value)=>{
 }
 const FilterCategory = computed(()=>{
   let filterCharacters = [];
-  if(categoryFilter.value=='all'|| categoryFilter.value=='') return principalStore.Characters;
+  if(categoryFilter.value=='all'|| categoryFilter.value=='') {
+    search.value = ''
+    return principalStore.Characters;
+  }
+  if(categoryFilter.value==search.value){
+    for (const character of principalStore.Characters) {
+      if(character.name==categoryFilter.value) filterCharacters.push(character);
+    }
+    return filterCharacters;
+  }
   for (const character of principalStore.Characters) {
-      if(character.type==categoryFilter.value) filterCharacters.push(character)
+      if(character.type==categoryFilter.value) filterCharacters.push(character);
   }
   return filterCharacters;
-})
+});
+const searchCharacter = ()=>{
+  if(search.value=='') return;
+  for (const character of principalStore.Characters) {
+    if(character.name == search.value) categoryFilter.value=search.value;
+  }
+}
 </script>
 
 <template>
   <main>
-    
+    <input type="text" v-model="search">
+    <button @click="searchCharacter">Search</button>
     <select v-model="selected" @change="OrderArray(selected)" >
       <option disabled value="">Please select one</option>
       <option>A - Z</option>
@@ -44,7 +61,7 @@ const FilterCategory = computed(()=>{
       <option>C</option>
     </select>
     <select v-model="categoryFilter" >
-      <option disabled value="">Please select one filter</option>
+      <option disabled value="default">Please select one filter</option>
       <option>all</option>
       <option>bug</option>
       <option>dragon</option>
